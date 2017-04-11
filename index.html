@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Crystal Game</title>
+	<link href="assets/css/reset.css" type="text/css" rel="stylesheet">
+	<link href="assets/css/style.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
+</head>
+<body>
+	<div id="header"><h1>Crystal Collector</h1></div>
+
+	<div id="wrap">
+		<div id="instructions">
+			<p>You are given a random number (<span id="goalnumber">55</span>).
+			<br>
+				The 4 Gems below each have a different value.<br>
+				Your Goal is to equal the random number.<br>
+				(Think of 21).<br>
+				If your number exceeds the random number, you lose.<br>
+				Good Luck!<br></p></div>
+		<div id="goal">
+			<p>Goal:</p>
+			<div id="goalnumber">55</div>
+		</div>
+		<div id="score">
+			<div id="wins">Wins:<span id="winnumber">0</span></div>
+			<div id="loss">Losses:<span id="lossnumber">0</span></div>
+		</div>
+		<div id="gems">
+			<div id="gem1"><img id="gemimg" src="assets/images/redcrystal.png"></div>
+			<div id="gem2"><img id="gemimg" src="assets/images/bluecrystal.png"></div>
+			<div id="gem3"><img id="gemimg" src="assets/images/purplecrystal.png"></div>
+			<div id="gem4"><img id="gemimg" src="assets/images/greencrystal.png"></div>
+		</div>
+		<div id="yourscore">
+			<p>Your Total Score is:</p>
+			<div id="scorenumber">
+				0
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

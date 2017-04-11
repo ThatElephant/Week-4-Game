@@ -1,0 +1,89 @@
+body {
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color: #0cf7d4;
+	background-color: #d2d2d2;
+}
+
+#header {
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    background-color: #393939;
+    border-bottom: 3px solid #606060;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#header h1{
+    padding-top: 31px;
+}
+
+#wrap {
+    width: 55%;
+    margin: 10px auto;
+    height: 100%;
+    padding: 10px;
+    background-image: url("../images/backgroundwrap.jpg");
+    text-align: center;
+}
+
+#instructions {
+    padding: 10px;
+    background-color: #393939;
+    border: 2px solid #606060;
+}
+
+#goal {
+    width: 48%;
+    height: 115px;
+    font-size: 35px;
+    background-color: #838383;
+    border: 3px solid #aaa;
+    margin: 3px;
+    float: left;
+}
+
+#goal p {
+    padding: 10px;
+}
+
+#score {
+    width: 48%;
+    float: right;
+    margin: 3px;
+    height: 115px;
+	background-color: #838383;
+    border: 3px solid #aaa;
+}
+
+#wins {
+    padding: 25px;
+}
+
+#winnumber {
+    margin: 10px;
+}
+
+#lossnumber {
+    margin: 10px;
+}
+
+#gems {
+    width: 100%;
+    height: 125px;
+    clear: both;
+    margin: 11px;
+}
+
+#gemimg {
+    width: 23%;
+    float: left;
+    height: 120px;
+    margin: 3px;
+}
+
+#yourscore {
+    height: 55px;
+    background-color: #393939;
+    border: 3px solid #606060;
+}
