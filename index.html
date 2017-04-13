@@ -19,19 +19,19 @@
 				(Think of 21).<br>
 				If your number exceeds the random number, you lose.<br>
 				Good Luck!<br></p></div>
-		<div id="goal">
+		<div id="goaldiv">
 			<p>Goal:</p>
-			<div id="goalnumber"></div>
+			<div id="goal"><!-- 0 --></div>
 		</div>
 		<div id="score">
-			<div id="wins">Wins:<span id="winnumber">0</span></div>
-			<div id="loss">Losses:<span id="lossnumber">0</span></div>
+			<div id="winsdiv">Wins:<span id="wins">0</span></div>
+			<div id="lossdiv">Losses:<span id="loss">0</span></div>
 		</div>
 		<div id="gems">
-			<div id="gem1"><img id="gemimg" src="assets/images/redcrystal.png"></div>
-			<div id="gem2"><img id="gemimg" src="assets/images/bluecrystal.png"></div>
-			<div id="gem3"><img id="gemimg" src="assets/images/purplecrystal.png"></div>
-			<div id="gem4"><img id="gemimg" src="assets/images/greencrystal.png"></div>
+			<div id="gem1"><img class="gemimg" src="assets/images/redcrystal.png" data-gemvalue="0"></div>
+			<div id="gem2"><img class="gemimg" src="assets/images/bluecrystal.png" data-gemvalue="0"></div>
+			<div id="gem3"><img class="gemimg" src="assets/images/greencrystal.png" data-gemvalue="0"></div>
+			<div id="gem4"><img class="gemimg" src="assets/images/purplecrystal.png" data-gemvalue="0"></div>
 		</div>
 		<div id="yourscore">
 			<p>Your Total Score is:</p>
@@ -58,37 +58,47 @@
 
 	//GOAL
 var goalNumber = Math.floor(Math.random() * 55) + 55;
-$("#goalnumber").text(goalNumber);
-
-var scoreCounter = 0;
 var gemsEachValue = [2, 5, 10, 15];
-
 var wins = 0;
 var loss = 0;
+var scoreCounter = 0;
 
-document.getElementById("winnumber").text += wins;
-document.getElementById("lossnumber").text += loss;
+$(function() {
+
+$("#goal").html(goalNumber);
 
  for (var i = 0; i < gemsEachValue.length; i++) {
- 	var gemImg = $("#gemimg");
-
+ 	var gemImg = $(".gemimg").eq(i);
  	gemImg.attr("data-gemvalue", gemsEachValue[i]);
- 	$("#gemimg").append(gemImg);
  };
 
-$("#gemimg").on("click", function() {
-	var eachGemValue = ($(this).attr("data-gemvalue"));
-	eachGemValue = parseInt(eachGemValue);
+$(".gemimg").click(function() {
+	var eachGemValue = parseInt($(this).attr("data-gemvalue"));
 	scoreCounter += eachGemValue;
-	$("#scorenumber").text(scoreCounter);
+	$("#scorenumber").html(scoreCounter);
 
 	if (scoreCounter === goalNumber) {
-		alert("You win!");
+		
 		wins++;
+                 scoreCounter = 0;
+                goalNumber = Math.floor(Math.random() * 55) + 55;
+                $("#goal").html(goalNumber);
+                $("#wins").html(wins);
+                $("#scorenumber").html(scoreCounter);
+                alert("You win!");
 	} else if (scoreCounter > goalNumber) {
-		alert("You Lost");
+		
 		loss++;
+                scoreCounter = 0;
+                goalNumber = Math.floor(Math.random() * 55) + 55;
+                $("#goal").html(goalNumber);
+                $("#loss").html(loss);
+                $("#scorenumber").html(scoreCounter);
+                alert("You Lost");
 	};
+        
+});
+
 });
 
 
