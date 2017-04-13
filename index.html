@@ -2,17 +2,17 @@
 <html>
 <head>
 <meta charset="utf-8">
-	<title>Crystal Game</title>
+	<title>Gem Game</title>
 	<link href="assets/css/reset.css" type="text/css" rel="stylesheet">
 	<link href="assets/css/style.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 <body>
-	<div id="header"><h1>Crystal Collector</h1></div>
+	<div id="header"><h1>Gem Collector</h1></div>
 
 	<div id="wrap">
 		<div id="instructions">
-			<p>You are given a random number (<span id="goalnumber">55</span>).
+			<p>You are given a random number.
 			<br>
 				The 4 Gems below each have a different value.<br>
 				Your Goal is to equal the random number.<br>
@@ -21,7 +21,7 @@
 				Good Luck!<br></p></div>
 		<div id="goal">
 			<p>Goal:</p>
-			<div id="goalnumber">55</div>
+			<div id="goalnumber"></div>
 		</div>
 		<div id="score">
 			<div id="wins">Wins:<span id="winnumber">0</span></div>
@@ -40,6 +40,60 @@
 			</div>
 		</div>
 	</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">
+	
+/* 	1) Generate random Goal number
+	2) make each gem clickable
+		-give them their own value
+		-value adds to total score
+	3) if total score = goal win
+	4) if total score > goal lose
+	5) alert win-loss
+		-new goal number
+		-total score back to 0
+*/
+
+	//GOAL
+var goalNumber = Math.floor(Math.random() * 55) + 55;
+$("#goalnumber").text(goalNumber);
+
+var scoreCounter = 0;
+var gemsEachValue = [2, 5, 10, 15];
+
+var wins = 0;
+var loss = 0;
+
+document.getElementById("winnumber").text += wins;
+document.getElementById("lossnumber").text += loss;
+
+ for (var i = 0; i < gemsEachValue.length; i++) {
+ 	var gemImg = $("#gemimg");
+
+ 	gemImg.attr("data-gemvalue", gemsEachValue[i]);
+ 	$("#gemimg").append(gemImg);
+ };
+
+$("#gemimg").on("click", function() {
+	var eachGemValue = ($(this).attr("data-gemvalue"));
+	eachGemValue = parseInt(eachGemValue);
+	scoreCounter += eachGemValue;
+	$("#scorenumber").text(scoreCounter);
+
+	if (scoreCounter === goalNumber) {
+		alert("You win!");
+		wins++;
+	} else if (scoreCounter > goalNumber) {
+		alert("You Lost");
+		loss++;
+	};
+});
+
+
+
+</script>
 
 </body>
 </html>

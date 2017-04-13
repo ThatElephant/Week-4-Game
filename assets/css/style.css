@@ -35,7 +35,7 @@ body {
 
 #goal {
     width: 48%;
-    height: 115px;
+    height: 155px;
     font-size: 35px;
     background-color: #838383;
     border: 3px solid #aaa;
@@ -47,17 +47,26 @@ body {
     padding: 10px;
 }
 
+#goalnumber {
+    font-size: 65px;
+}
+
 #score {
     width: 48%;
     float: right;
     margin: 3px;
-    height: 115px;
+    height: 155px;
 	background-color: #838383;
     border: 3px solid #aaa;
 }
 
 #wins {
     padding: 25px;
+    font-size: 25px;
+}
+
+#loss {
+	font-size: 25px;
 }
 
 #winnumber {
@@ -70,20 +79,29 @@ body {
 
 #gems {
     width: 100%;
-    height: 125px;
+    height: 150px;
     clear: both;
-    margin: 11px;
 }
 
 #gemimg {
-    width: 23%;
+    width: 145px;
     float: left;
-    height: 120px;
-    margin: 3px;
+    height: auto;
+    margin: 5px 10px;
 }
 
 #yourscore {
-    height: 55px;
+    height: 62px;
     background-color: #393939;
     border: 3px solid #606060;
+    clear: both;
+}
+
+#yourscore p {
+    margin-top: 5px;
+}
+
+#scorenumber {
+    padding: 5px;
+    font-size: 30px;
 }
