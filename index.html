@@ -5,6 +5,7 @@
 	<title>Gem Game</title>
 	<link href="assets/css/reset.css" type="text/css" rel="stylesheet">
 	<link href="assets/css/style.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 <body>
@@ -42,68 +43,6 @@
 	</div>
 
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script type="text/javascript">
-	
-/* 	1) Generate random Goal number
-	2) make each gem clickable
-		-give them their own value
-		-value adds to total score
-	3) if total score = goal win
-	4) if total score > goal lose
-	5) alert win-loss
-		-new goal number
-		-total score back to 0
-*/
-
-	//GOAL
-var goalNumber = Math.floor(Math.random() * 55) + 55;
-var gemsEachValue = [2, 5, 10, 15];
-var wins = 0;
-var loss = 0;
-var scoreCounter = 0;
-
-$(function() {
-
-$("#goal").html(goalNumber);
-
- for (var i = 0; i < gemsEachValue.length; i++) {
- 	var gemImg = $(".gemimg").eq(i);
- 	gemImg.attr("data-gemvalue", gemsEachValue[i]);
- };
-
-$(".gemimg").click(function() {
-	var eachGemValue = parseInt($(this).attr("data-gemvalue"));
-	scoreCounter += eachGemValue;
-	$("#scorenumber").html(scoreCounter);
-
-	if (scoreCounter === goalNumber) {
-		
-		wins++;
-                 scoreCounter = 0;
-                goalNumber = Math.floor(Math.random() * 55) + 55;
-                $("#goal").html(goalNumber);
-                $("#wins").html(wins);
-                $("#scorenumber").html(scoreCounter);
-                alert("You win!");
-	} else if (scoreCounter > goalNumber) {
-		
-		loss++;
-                scoreCounter = 0;
-                goalNumber = Math.floor(Math.random() * 55) + 55;
-                $("#goal").html(goalNumber);
-                $("#loss").html(loss);
-                $("#scorenumber").html(scoreCounter);
-                alert("You Lost");
-	};
-        
-});
-
-});
-
-
-
-</script>
 
 </body>
 </html>
